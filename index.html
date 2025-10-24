@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KosKita - Cari Kos di Padang</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>KosKita</h1>
+      <p class="muted">Cari kos & hunian mahasiswa di Kota Padang</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="search card">
+      <input id="q" placeholder="Cari nama kos, area (mis. UNAND, UNP)" />
+      <select id="gender">
+        <option value="">Semua</option>
+        <option value="putra">Putra</option>
+        <option value="putri">Putri</option>
+        <option value="campur">Campur</option>
+      </select>
+      <input id="maxPrice" placeholder="Max harga (Rp)" type="number" />
+      <button id="btnSearch">Cari</button>
+    </section>
+
+    <section class="layout">
+      <div class="left">
+        <div id="listings" class="listings"></div>
+      </div>
+      <aside class="right">
+        <div class="card">
+          <h3>Tambah Listing (Pemilik)</h3>
+          <form id="formAdd">
+            <input id="f_title" placeholder="Judul" required />
+            <input id="f_area" placeholder="Area" required />
+            <input id="f_price" placeholder="Harga" type="number" required />
+            <input id="f_owner" placeholder="Kontak (WhatsApp)" />
+            <select id="f_gender">
+              <option value="campur">Campur</option>
+              <option value="putra">Putra</option>
+              <option value="putri">Putri</option>
+            </select>
+            <label><input type="checkbox" id="f_ac" /> AC</label>
+            <label><input type="checkbox" id="f_wifi" /> WiFi</label>
+            <label><input type="checkbox" id="f_bath" /> Kamar Mandi</label>
+            <input id="f_img" placeholder="URL gambar (opsional)" />
+            <button type="submit">Tambah</button>
+          </form>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Chat Simulasi</h3>
+          <div id="chatBox" class="chatBox"></div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <input id="chatInput" placeholder="Tulis pesan..." />
+            <button id="chatSend">Kirim</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content card">
+      <button class="close" id="modalClose">×</button>
+      <img id="m_img" src="" alt="" />
+      <h2 id="m_title"></h2>
+      <div id="m_area"></div>
+      <div id="m_price"></div>
+      <div id="m_facilities"></div>
+
+      <h4>Ulasan</h4>
+      <div id="m_reviews"></div>
+      <form id="m_review_form">
+        <input id="r_name" placeholder="Nama" />
+        <select id="r_rating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select>
+        <input id="r_text" placeholder="Komentar" />
+        <button type="submit">Kirim Ulasan</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
